@@ -9,6 +9,10 @@ bin
 .jpeg
 .jpg
 bin/
+*.pyc
+src/__pycache__
+cpython-36.pyc
+__pycache__
 __pycache__/
 .pyc
 *.py[cod]

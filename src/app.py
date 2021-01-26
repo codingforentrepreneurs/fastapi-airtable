@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+from functools import lru_cache
+import os
 import pathlib
 from fastapi import FastAPI, Form, Request
 from fastapi.templating import Jinja2Templates
@@ -9,6 +12,13 @@ templates = Jinja2Templates(directory = BASE_DIR / "templates" )
 
 # http://localhost:3000/abc # route -> # path
 # https://www.myawesomesite.com/abc
+
+@lru_cache()
+def cached_dotenv():
+    load_dotenv()
+
+cached_dotenv()
+
 
 @app.get("/")
 def home_view(request: Request):

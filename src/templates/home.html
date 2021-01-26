@@ -2,4 +2,13 @@
 
 {% block content %}
 <h1>Hello, fastapi - airtable!</h1>
+
+{% if submitted_email %}
+    <p>{{ submitted_email }}</p>
+{% endif %}
+
+<form method='POST'>
+    <input type='email' name='email' placeholder='Your email...' required='required' />
+    <input type='submit' value='Join waitlist' />
+</form>
 {% endblock %}

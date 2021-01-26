@@ -1,5 +1,5 @@
 import pathlib
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Form, Request
 from fastapi.templating import Jinja2Templates
 
 BASE_DIR = pathlib.Path(__file__).parent # src
@@ -13,3 +13,13 @@ templates = Jinja2Templates(directory = BASE_DIR / "templates" )
 @app.get("/")
 def home_view(request: Request):
     return templates.TemplateResponse("home.html", {"request": request})
+
+@app.post("/")
+def home_signup_view(request: Request, email:str = Form(...)):
+    """
+    TODO add CSRF for security
+    """
+
+    # to send email to airtable.
+    
+    return templates.TemplateResponse("home.html", {"request": request, "submitted_email": email})
